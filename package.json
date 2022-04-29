@@ -1,0 +1,18 @@
+{
+  "name": "new-relic-decorators",
+  "version": "0.0.1",
+  "description": "typescript decorators for new relic monitoring",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "author": "michal pavlik <michalpavlik1@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.30",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "newrelic": "^8.10.0"
+  }
+}
