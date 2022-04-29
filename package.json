@@ -8,6 +8,20 @@
   },
   "author": "michal pavlik <michalpavlik1@gmail.com>",
   "license": "ISC",
+  "keywords": [
+    "new relic",
+    "decorators",
+    "transaction",
+    "monitoring"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavlikm/new-relic-decorators.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pavlikm/new-relic-decorators/issues"
+  },
+  "homepage": "https://github.com/pavlikm/new-relic-decorators",
   "devDependencies": {
     "@types/node": "^17.0.30",
     "typescript": "^4.5.5"
