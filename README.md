@@ -34,3 +34,13 @@ async someMethod(){
     console.log("something...");
 }
 ```
+
+
+### NewRelicEvent
+Add decorator *NewRelicEvent* for trigger new event. The attributes must be an object of key and value pairs. The keys must be string, and the values must be string, number, or boolean.
+```typescript
+@NewRelicEvent("customEvent", {"event": 1})
+async someMethod(){
+    console.log("something...");
+}
+```

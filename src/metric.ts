@@ -11,7 +11,7 @@ export const NewRelicIncrementMetric = (category: string, name: string, value: n
 
     const method = descriptor.value;
     descriptor.value = function (...args: any) {
-        nr.incrementMetric(`${category}/${name}`, value)
+        nr.incrementMetric(`Custom/${category}/${name}`, value)
         method.apply(this, args);
     };
 }
@@ -29,7 +29,7 @@ export const NewRelicRecordMetric = (category: string, name: string, value: numb
 
     const method = descriptor.value;
     descriptor.value = function (...args: any) {
-        nr.recordMetric(`${category}/${name}`, value)
+        nr.recordMetric(`Custom/${category}/${name}`, value)
         method.apply(this, args);
     };
 }
