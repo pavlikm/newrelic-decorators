@@ -1,10 +1,10 @@
-# New Relic Decorators
+# NewRelic Decorators
 
 ## Installation:
 1. install New Relic Agent: 
 
     https://docs.newrelic.com/docs/apm/agents/nodejs-agent/installation-configuration/install-nodejs-agent/
-3. `npm i new-relic-decorators`
+3. `npm i newrelic-decorators`
 
 ## Usage:
 
