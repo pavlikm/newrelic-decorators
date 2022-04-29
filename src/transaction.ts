@@ -5,7 +5,7 @@ export const NewRelicTransaction = (transactionName: string) => (
 ) => {
     const method = descriptor.value;
     const trimSlashes = str => str.split('/').filter(v => v !== '').join('/');
-    const transactionIdentifier = trimSlashes(transactionName).length() > 0 ? trimSlashes(transactionName) : name;
+    const transactionIdentifier = trimSlashes(transactionName).length > 0 ? trimSlashes(transactionName) : name;
     let nr;
     try {
         // Dynamically load newrelic, in case it is not installed
