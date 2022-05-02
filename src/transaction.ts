@@ -1,4 +1,4 @@
-export const NewRelicTransaction = (transactionName: string) => (
+export const NewRelicTransaction = (transactionName: string = "") => (
     target: any,
     name: string,
     descriptor: PropertyDescriptor
