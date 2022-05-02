@@ -1,6 +1,6 @@
 {
   "name": "newrelic-decorators",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "typescript decorators for new relic monitoring",
   "main": "lib/index.js",
   "scripts": {
