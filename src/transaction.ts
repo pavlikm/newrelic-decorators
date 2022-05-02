@@ -10,14 +10,19 @@ export const NewRelicTransaction = (transactionName: string) => (
     try {
         // Dynamically load newrelic, in case it is not installed
         nr = require('newrelic');
-    } catch { }
+    } catch {
+    }
 
-    descriptor.value = function (...args: any) {
-        nr.startWebTransaction(transactionIdentifier, async () => {
-            const transaction = nr.getTransaction();
-            await method.apply(this, args);
-            transaction.end()
+    descriptor.value = async function (...args) {
+        return new Promise((resolve, reject) => {
+            nr.startWebTransaction(transactionIdentifier, async () => {
+                const transaction = nr.getTransaction();
+                const result = await method.apply(this, args);
+                transaction.end();
+                return resolve(result);
+            })
         })
 
     };
+    return descriptor;
 }
