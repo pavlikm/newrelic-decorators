@@ -1,6 +1,6 @@
 {
   "name": "newrelic-decorators",
-  "version": "1.2.4",
+  "version": "1.2.6",
   "description": "typescript decorators for new relic monitoring",
   "main": "lib/index.js",
   "scripts": {
@@ -27,6 +27,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "newrelic": "^8.10.0"
+    "newrelic": "^8.10.0",
+    "reflect-metadata": "^0.1.13"
   }
 }

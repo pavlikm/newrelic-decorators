@@ -1,9 +1,12 @@
+import {copyMetadata} from "./helpers/copy-metadata";
+
 export const NewRelicIncrementMetric = (category: string, name: string, value: number = 1) => (
     target: any,
     name: string,
     descriptor: PropertyDescriptor
 ) => {
-    let nr;
+    type NewRelic = typeof import('newrelic')
+    let nr: NewRelic | null = null;
     try {
         // Dynamically load newrelic, in case it is not installed
         nr = require('newrelic');
@@ -14,6 +17,8 @@ export const NewRelicIncrementMetric = (category: string, name: string, value: n
         nr.incrementMetric(`Custom/${category}/${name}`, value)
         method.apply(this, args);
     };
+    copyMetadata(method, descriptor.value)
+    return descriptor;
 }
 
 export const NewRelicRecordMetric = (category: string, name: string, value: number = 1) => (
@@ -21,7 +26,8 @@ export const NewRelicRecordMetric = (category: string, name: string, value: numb
     name: string,
     descriptor: PropertyDescriptor
 ) => {
-    let nr;
+    type NewRelic = typeof import('newrelic')
+    let nr: NewRelic | null = null;
     try {
         // Dynamically load newrelic, in case it is not installed
         nr = require('newrelic');
@@ -32,4 +38,6 @@ export const NewRelicRecordMetric = (category: string, name: string, value: numb
         nr.recordMetric(`Custom/${category}/${name}`, value)
         method.apply(this, args);
     };
+    copyMetadata(method, descriptor.value)
+    return descriptor;
 }
