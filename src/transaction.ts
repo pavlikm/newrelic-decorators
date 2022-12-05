@@ -22,7 +22,13 @@ export const NewRelicTransaction = (transactionName: string = ""): any => (
             return new Promise((resolve, reject) => {
                 nr.startWebTransaction(transactionIdentifier, async () => {
                     const transaction = nr.getTransaction();
-                    const result = await method.apply(this, args);
+                    let result: unknown;
+                    try {
+                        result = await method.apply(this, args);
+                    } catch (error) {
+                        nr.noticeError(error)
+                        reject(error)
+                    }
                     transaction.end();
                     return resolve(result);
                 })
