@@ -1,1 +1,1 @@
-export {NewRelicTransaction} from "./transaction";
+export {NewRelicEvent, NewRelicIncrementMetric, NewRelicRecordMetric, NewRelicTransaction} from "./src";
